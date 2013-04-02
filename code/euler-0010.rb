@@ -5,7 +5,8 @@
 class Integer
   def prime?
     return false if self < 2
-    return true if self == 2
+    return true  if self == 2
+    return false if self%2 == 0
 
     i = 3
     limit = self/i
