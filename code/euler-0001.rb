@@ -4,6 +4,13 @@
 
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-sum = (3..999).select { |i| (i%3==0) || (i%5==0) }.reduce(:+)
+def sum_of_multiples_of_both(x, y, max)
+  sum_of_multiples(x, max) + sum_of_multiples(y, max) - sum_of_multiples(x*y, max)
+end
 
-puts sum
+def sum_of_multiples(x, max)
+  k = max/x
+  x * k * (k+1) / 2
+end
+
+puts sum_of_multiples_of_both(3, 5, 999)
